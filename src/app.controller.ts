@@ -1,30 +1,25 @@
 import { Controller, Get } from '@nestjs/common'
 import { AppService } from './app.service'
 
-@Controller()
+@Controller('api')
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
-  @Get()
-  health() {
-    return "now-playing-api"
-  }
-
-  @Get('api/counterstream')
+  @Get('counterstream')
   getCounterStream() {
     return this.appService.getCounterstream()
   }
 
-  @Get('api/dronezone')
+  @Get('dronezone')
   getDroneZone() {
     return this.appService.getDroneZone()
   }
 
-  @Get('api/newsounds')
+  @Get('newsounds')
   getNewSounds() {
     return this.appService.getNewSounds()
   }
-  @Get('api/yle')
+  @Get('yle')
   getYle() {
     return this.appService.getYle()
   }
